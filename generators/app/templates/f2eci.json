@@ -1,0 +1,12 @@
+{
+    "scripts": {
+        "build": "node build/build.js",
+        "postpublish": ""
+    },
+    "dist": "./dist",
+    "output": "./html",
+    "urlPrefix": "./",
+    "static-src": "static",
+    "static": "js",
+    "env": "dev"
+}

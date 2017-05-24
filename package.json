@@ -1,0 +1,30 @@
+{
+  "name": "generator-vue-webpack",
+  "version": "1.0.0",
+  "description": "vue2+webpack2脚手架",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xiaoxinghug/generator-vuepackage.git"
+  },
+  "keywords": [
+    "yeoman-generator"
+  ],
+  "dependencies": {
+    "chai": "^3.3.0",
+    "chalk": "^1.1.1",
+    "fs-extra": "^0.24.0",
+    "mocha": "^2.3.3",
+    "yeoman-generator": "^0.24.1",
+    "yosay": "^1.0.5"
+  },
+  "author": "chenxiaoxing",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xiaoxinghug/generator-vuepackage/issues"
+  },
+  "homepage": "https://github.com/xiaoxinghug/generator-vuepackage#readme"
+}
