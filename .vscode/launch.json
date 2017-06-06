@@ -1,0 +1,19 @@
+{
+   // 使用 IntelliSense 以学习相关的 Node.js 调试属性。
+   // 悬停以查看现有属性的描述。
+   // 欲了解更多信息，请访问: https://go.microsoft.com/fwlink/?linkid=830387
+   "version": "0.2.0",
+   "configurations": [
+       {
+           "type": "node",
+           "request": "launch",
+           "name": "yo",
+           "program": "/usr/local/bin/yo",  // yo命令所在目录
+           "args": ["vue-webpack"],  // 需要调试的generator，在此之前要先npm link
+           "stopOnEntry": true,
+           "console": "externalTerminal", // 调试控制台打开外部的终端，方便交互操作
+           "cwd": "/Users/chenxiaoxing/dpPublic/generator/test"  // 指定正在调试的工作目录
+
+       }
+   ]
+}
