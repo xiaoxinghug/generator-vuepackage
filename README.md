@@ -1,12 +1,18 @@
-vue技术栈脚手架
+vue技术栈脚手架:
+
 webpack2+vue2 -- vue2 脚手架
+
 webpack2+vue2+router2 -- vue2+router2 脚手架
 
-使用脚手架生成项目
+使用脚手架生成项目:
 npm install -g yarn
+
 npm install -g yo
+
 npm install -g generator-vue-webpack
+
 cd /path/of/your/project //切到你的项目目录
+
 yo 回车 选择 Vuewebpack 或者
 yo generator-vue-webpack //在你的项目目录下执行
 
