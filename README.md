@@ -24,3 +24,5 @@ yo generator-vue-webpack //在你的项目目录下执行
 构建:
 
 执行npm run build命令，会在dist/static目录下，生成webpack打包后的.js和.css文件。
+
+目录中的.vscode 是调试yeoman-generator脚手架在vscode中的配置
