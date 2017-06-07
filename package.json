@@ -1,6 +1,6 @@
 {
   "name": "generator-vue-webpack",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "vue2+webpack2脚手架",
   "main": "generators/index.js",
   "scripts": {

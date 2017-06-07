@@ -162,6 +162,66 @@ module.exports = yeoman.Base.extend({
                         "start": "node build/dev-server.js",
                         "build": "node build/build.js"
                     }
+                },
+                "webpack2+vue2":{
+                    devDependencies:{
+                        "autoprefixer": "^6.7.2",
+                        "babel-core": "^6.22.1",
+                        "babel-loader": "^6.2.10",
+                        "babel-plugin-transform-runtime": "^6.22.0",
+                        "babel-preset-env": "^1.3.2",
+                        "babel-preset-stage-2": "^6.22.0",
+                        "babel-register": "^6.22.0",
+                        "chalk": "^1.1.3",
+                        "compression-webpack-plugin": "^0.4.0",
+                        "connect-history-api-fallback": "^1.3.0",
+                        "copy-webpack-plugin": "^4.0.1",
+                        "css-loader": "^0.28.0",
+                        "eventsource-polyfill": "^0.9.6",
+                        "express": "^4.14.1",
+                        "extract-text-webpack-plugin": "^2.0.0",
+                        "fetch-jsonp": "^1.0.6",
+                        "file-loader": "^0.11.1",
+                        "friendly-errors-webpack-plugin": "^1.1.3",
+                        "html-webpack-plugin": "^2.28.0",
+                        "http-proxy-middleware": "^0.17.3",
+                        "isomorphic-fetch": "^2.2.1",
+                        "less": "^2.7.2",
+                        "less-loader": "^4.0.3",
+                        "opn": "^4.0.2",
+                        "optimize-css-assets-webpack-plugin": "^1.3.0",
+                        "ora": "^1.2.0",
+                        "rimraf": "^2.6.0",
+                        "semver": "^5.3.0",
+                        "shelljs": "^0.7.6",
+                        "url-loader": "^0.5.8",
+                        "vue-loader": "^11.3.4",
+                        "vue-style-loader": "^2.0.5",
+                        "vue-template-compiler": "^2.2.6",
+                        "webpack": "^2.3.3",
+                        "webpack-bundle-analyzer": "^2.2.1",
+                        "webpack-dev-middleware": "^1.10.0",
+                        "webpack-hot-middleware": "^2.18.0",
+                        "webpack-merge": "^4.1.0"
+                    },
+                    dependencies:{
+                        "@dp/base-op-url": "^1.1.5",
+                        "@dp/mbase-style": "^1.1.21",
+                        "@dp/url-rewrite": "^0.4.0",
+                        "@dp/util-login": "^1.0.3",
+                        "@dp/util-m-share": "^4.0.0",
+                        "@dp/util-m-ua": "^2.0.0",
+                        "@gfe/app-common-toast": "^0.1.4",
+                        "@dp/geo":"^1.0.0",
+                		"gulp": "^3.9.1",
+                        "gulp-htmlmin": "^3.0.0",
+                        "vue": "^2.2.6"
+                    },
+                    scripts:{
+                        "dev": "node build/dev-server.js",
+                        "start": "node build/dev-server.js",
+                        "build": "node build/build.js"
+                    }
                 }
             }[this.props.boilerplate]||{};
             this.pkg = extend({
@@ -209,12 +269,12 @@ module.exports = yeoman.Base.extend({
         };
         switch (this.props.boilerplate) {
             case 'webpack2+vue2':
-                this.spawnCommandSync('npm', ['install'],opt);
+                this.spawnCommandSync('yarn', ['install'],opt);
                 // this.spawnCommandSync('webpack',[],opt);
                 this.spawnCommandSync('npm',['start'],opt);
                 break;
             case 'webpack2+vue2+router2':
-                this.spawnCommandSync('npm', ['install'],opt);
+                this.spawnCommandSync('yarn', ['install'],opt);
                 // this.spawnCommandSync('webpack',[],opt);
                 this.spawnCommandSync('npm',['start'],opt);
                 break;
