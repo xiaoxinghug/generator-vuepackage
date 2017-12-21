@@ -1,8 +1,8 @@
 {
-  "name": "app-wedding-static",
-  "version": "1.0.0",
+  "name": "",
+  "version": "",
   "description": "A Vue.js project",
-  "author": "chenzhenxing",
+  "author": "",
   "private": true,
   "scripts": {
     "dev": "node build/dev-server.js",

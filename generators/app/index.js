@@ -67,6 +67,7 @@ module.exports = yeoman.Base.extend({
                     message: 'E-Mail'
                 }
         ];
+
         this.prompt(prompts, function (props) {
             this.props = props;
             // To access props later use this.props.someAnswer;
@@ -224,13 +225,14 @@ module.exports = yeoman.Base.extend({
                     }
                 }
             }[this.props.boilerplate]||{};
-            this.pkg = extend({
+
+            var pkg = extend({
                 name: _.kebabCase(this.props.name),
-                version: this.props.version,
+                version: _.kebabCase(this.props.version),
                 description: this.props.description,
                 repository: {
                     type: 'git',
-                    url: this.props.repo,
+                    url: this.props.repo
                 },
                 author: {
                     name: this.props.author, 
@@ -247,10 +249,23 @@ module.exports = yeoman.Base.extend({
             }, currentPkg);
             // Combine the keywords
             if (this.props.keywords) {
-                this.pkg.keywords = _.uniq(this.props.keywords.concat(this.pkg.keywords));
+                pkg.keywords = _.uniq(this.props.keywords.concat(pkg.keywords));
+            }
+            if (this.props.name){
+                pkg.name = this.props.name;
+            }
+            if (this.props.version){
+                pkg.version = this.props.version;
+            }
+               pkg.author = {};
+            if (this.props.author){
+                pkg.author.name = this.props.author;
+            }
+            if (this.props.email){
+                pkg.author.email= this.props.email;
             }
             // Let's extend package.json so we're not overwriting user previous fields
-            this.fs.writeJSON(this.destinationPath('package.json'), this.pkg);
+            this.fs.writeJSON(this.destinationPath('package.json'), pkg);
         },
         /*
          * 生成 README.md
@@ -263,7 +278,7 @@ module.exports = yeoman.Base.extend({
             // this.fs.copyTpl(this.templatePath('./' + this.currentDir + '/tpl') + "/**/*.*", this.destinationPath('./'), {AppName: this.pkg.name});
         }
     },
-    install (){      //安装依赖
+    install:function (){      //安装依赖
          let opt = {
             cwd: this.destinationPath('./')
         };
