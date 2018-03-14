@@ -1,0 +1,160 @@
+.beautyGroup{
+    margin-top: 20rpx;
+    padding-left: 30rpx;
+    background: #ffffff;
+}
+
+.beautyGroupHeader{
+    padding: 20rpx 30rpx 0 0;
+    height: 40rpx;
+    color: #777777;
+    zoom: 1;
+}
+
+.beautyGroupTitle{
+    float: left;
+    font-size: 30rpx;
+    line-height: 40rpx;
+}
+
+.beautyGroupMore{
+    float: right;
+    font-size: 0;
+    line-height: 40rpx;
+    text-align: right;
+    .desc{
+        display: inline-block;
+        vertical-align: middle;
+        font-size: 26rpx;
+        height: 26rpx;
+        line-height: 26rpx;
+    }
+    .icon{
+        display: inline-block;
+        vertical-align: middle;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAaCAYAAAHJb+yRAAAAAXNSR0IArs4c6QAAAqZJREFUOBGNlMtrU1EQxnOTkEUSxUCgQgV1UXAnSpCQgJCXItqN2bhQuhJBV7rw8Q+oiHsVNy6UglYKios2LyK4EFIki4AIBR8hYrMISEGMSepvbu6c5iZKOnDvmW/m++bMedzrKZVKpzxqhUJhy6vAA/pqgHEqlUrU5vT7/ZZwrpqUyLHtCpqRhO2LUywWawpc9b2WZUUNdUT7SYOWBqmxxEx5G9ORXxnS0BEDJO0CYAvtN7T7JJnL5UxNwWImALENMSrBUCgUTCQSv1wEAWIQ30FMiO/3++dMBQmo0Ucf394cQ5DN7PV6bYe0QT8z4lscy/xgMHhlA8t6ls1mzzuk4cCczXK5fNYVHAFeGprliF5S6cZI3Lhen893WhDT3KW5BybjOHaTqI9CWHNib2jwjBLNKiDth/RZEpzhGs3GbF9eaix1D0vtCIb0BdIBU0FJjUYj0Gq1fjukDxNXieQlJbPC564K7MkTgguO+gJTPDUEku9JHpMkS4+l02l7VTaB5HeSeyUZDAZnksnkhvhiFpsjDQUERCKRQCwW+yO+mh8nwJK2mG+iYSG5rhx4APky5EeS3Il5sSuIdFo53IdysXnu7KSA2QWO6jhH9RrR7jHhImtbGF+bckwBDXCch7he8sHbX5LG6fJtOByej8fjPzUm40QBTbL1cuVXKHRYY874kY8pl0qlmoL/W0BFtVot2Ol0lsEnNCYjHf1g/zJTC6iIjs7RzaJip0hnagGEtxHeGhPKr+8mx33vnwXq9Xqo3W6/QLj9I0ZB25s8+Uwms6oFXQWq1erBbre7QnJOCTIiWuc5iXB9NG7n5MVvI8MdWGbGXWOEVXY8z45vjsUNlKvcRDhrIkPnPuu7zqzD3/xYchT6IV0k8Jgi8h1cQ7g0Spjm/wWitz+PmjQe2wAAAABJRU5ErkJggg==);
+        width: 16rpx;
+        height: 26rpx;
+        background-size: cover;
+        margin-left: 10rpx;
+        line-height: 26rpx;
+    }
+}
+
+.beautyGroupItem{
+    padding: 20rpx 30rpx 20rpx 0;
+    border-bottom: 1rpx solid #E1E1E1;
+    display: flex;
+    &:last-of-type{
+        border-bottom: none;
+    }
+    .leftPicPanel{
+        width: 160rpx;
+        height: 160rpx;
+        border: 1rpx solid #e1e1e1;
+        .groupPic{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    .rightTxtPanel{
+        position: relative;
+        flex: 1;
+        padding-left: 20rpx;
+        overflow:hidden;
+        .groupTitle{
+            font-size: 34rpx;
+            line-height: 48rpx;
+            color: #111111;
+            font-weight: bold;
+            max-width: 100%;
+            white-space: nowrap;
+            word-wrap: normal;
+            text-overflow: ellipsis;
+            overflow: hidden;
+        }
+        .basicInfo{
+            margin-top: 10rpx;
+            color: #777777;
+            font-size: 26rpx;
+            height: 37rpx;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            .address{
+                margin-right: 5rpx;
+                flex: 1;
+                max-width: 100%;
+                white-space: nowrap;
+                word-wrap: normal;
+                text-overflow: ellipsis;
+                overflow: hidden;
+            }
+            .joinNum{
+                text-align: right;
+            }
+        }
+        .priceInfo{
+            position: absolute;
+            bottom: 0;
+            left: 20rpx;
+            display: flex;
+            align-items: baseline;
+            .minGroupNum{
+                font-size: 26rpx;
+                margin-right: 6rpx;
+                color: #ff6633;
+            }
+            .salePrice{
+                margin-right: 10rpx;
+                font-weight: bold;
+                .groupDollar{
+                    font-size: 26rpx;
+                    color: #ff6633;
+                }
+                .groupPrice{
+                    font-size: 42rpx;
+                    color: #ff6633;
+                }
+            }
+            .originPrice{
+                font-size: 26rpx;
+                .groupDollar{
+                    color: #777777;
+                }
+                .groupPrice{
+                    font-size: 26rpx;
+                    text-decoration: line-through;
+                    color: #777777;
+                }
+            }
+        }
+        .joinBtn{
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 139rpx;
+            height: 60rpx;
+            background-color: #ff6633;
+            text-align: center;
+            color: #ffffff;
+            font-size: 26rpx;
+            font-weight: bold;
+            line-height: 60rpx;
+            border-radius: 4rpx;
+        }
+    }
+}
+
+.clearfix{
+    &:before{
+        content: " ";
+        display: block;
+    }
+    &:after {
+        content: " ";
+        display: block;
+        height: 0;
+        clear: both;
+    }
+}

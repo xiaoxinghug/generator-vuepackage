@@ -1,0 +1,10 @@
+node_modules/
+dist/
+build/
+gulpfile.js
+movie/
+src/utils/npm/
+src/searchWidget
+src/npm/
+src/packages/
+src/components/wedorder

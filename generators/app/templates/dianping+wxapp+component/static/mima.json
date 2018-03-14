@@ -1,0 +1,7 @@
+{
+    "type": "component",
+    "component":{
+        "base": "src/components/wedorder",
+        "name": "wedorder"
+    }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "dianping-wxapp",
+  "scripts":{
+    "build":"gulp"
+  },
+  "dist":"build/",
+  "urlPrefix": "./",
+  "static":"static/",
+  "env":"dev"
+}

@@ -1,0 +1,67 @@
+<!--component/app/index.wxml-->
+<view>
+    <view class="shop-book">
+        <view class="op-box" bindtap="callPhone" wx:if="{{shopTel}}">
+            <i class="phone"></i>
+            <span>电话</span>
+        </view>
+        <view class="book-btn" bindtap="showModal">
+              {{btnText || "预约看店"}}
+        </view>
+    </view>
+    <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+    	  <view class="shop-book-popup">
+    	  		<view class="title">
+    	  			{{title}}
+                    <view class="close-box" bindtap="hideModal">
+                        <span class="icon"></span>
+                    </view>
+    	  		</view>
+    	  		<view class="book-popup-feature" wx:if="{{infoList&&infoList.length}}">
+    	  			<view class="item" wx:for="{{infoList || []}}" wx:for-item="it">
+    	  				<i wx:if="{{it.tag}}">{{it.tag}}</i><span wx:if="{{it.intro}}">{{it.intro}}</span>
+    	  			</view>
+    	  		</view>
+    	  		<view class="book-popup-op">
+    	  			<p class="intro">
+                        <view class="m-b-20">
+    	  				 留下您的联系方式以便商户尽快联系您
+                        </view>
+    	  			</p>
+    	  			<p>
+	    	  			<input type="number" placeholder-style="color:#ccc;" maxlength="11" bindinput="bindTelOp" value="{{tel}}" class="input" placeholder="请填写您的手机号码" />
+    	  			</p>
+                    <p wx:if="{{showCodeModalStatus}}">
+                        <view class="js-sms-area sms-area">
+                            <input type="number" placeholder-style="color:#ccc;" bindinput="bindCodeOp"  class="input" placeholder="请输入验证码"/>
+                            <view class="btn sms-btn" bindtap="getCodeOp" wx:if="{{!showTimeout}}">获取验证码</view>
+                            <view class="btn re-sms-btn" wx:if="{{showTimeout}}">重新发送({{time}})</view>
+                        </view>
+                    </p>
+    	  		</view>
+    	  		<view class="book-op-btn" bindtap="submitOp">
+    	  			立即预约
+    	  		</view>
+    	  </view>
+    </view>
+
+   <!--  <view>
+        <wxapp-wedding-common-pop-window visible="{{showCodeModalStatus}}"  bindswitch="closeCodeModal">
+            <view class="book-popup">
+                <view class="title">
+                    验证手机号码
+                </view>
+                <view class="js-sms-area sms-area">
+                    <input type="number" bindinput="bindCodeOp"  class="input" placeholder="请输入验证码"/>
+                    <view class="btn sms-btn" bindtap="getCodeOp" wx:if="{{!showTimeout}}">获取验证码</view>
+                    <view class="btn re-sms-btn" wx:if="{{showTimeout}}">重新发送({{time}})</view>
+                </view>
+                <view class="confirm-btn" bindtap="submitOp">
+                    确认
+                </view>
+            </view>
+        </wxapp-wedding-common-pop-window>
+    </view> -->
+
+</view>

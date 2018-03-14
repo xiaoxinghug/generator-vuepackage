@@ -1,0 +1,27 @@
+{
+    "pages": [
+        "pages/index/index"
+    ],
+    "window": {
+        "navigationBarBackgroundColor": "#181818",
+        "navigationBarTextStyle": "white",
+        "navigationBarTitleText": "组件测试页面",
+        "backgroundColor": "#181818",
+        "backgroundTextStyle": "light",
+        "enablePullDownRefresh": false
+    },
+    "networkTimeout": {
+        "request": 5000,
+        "downloadFile": 10000
+    },
+    "widgets": [
+        {
+            "type": "search",
+            "path": "searchWidget"
+        }
+    ],
+    "debug": true,
+    "subPackages": [
+
+    ]
+}

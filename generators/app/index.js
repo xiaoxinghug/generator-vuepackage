@@ -35,12 +35,12 @@ module.exports = yeoman.Base.extend({
                     default: path.basename(process.cwd())// Default to current folder name
                 }, {
                     name: 'version',
-                    default: '0.1.0',
+                    default: '0.0.1',
                     message: 'version'
                 },
                 {
                     name: 'description',
-                    default: 'vue project',
+                    default: '项目描述',
                     message: 'description'
                 },
                 {
@@ -50,7 +50,7 @@ module.exports = yeoman.Base.extend({
                 },
                 {
                     name: 'keywords',
-                    default: 'vue',
+                    default: '关键词',
                     message: 'keywords',
                     filter: function (words) {
                         return words.split(/\s*,\s*/g);
@@ -58,7 +58,7 @@ module.exports = yeoman.Base.extend({
                 },
                 {
                     name: 'author',
-                    default: this.user.git.name(),
+                    default: this.user.git.name() || '张三',
                     message: 'author'
                 },
                 {
@@ -164,6 +164,59 @@ module.exports = yeoman.Base.extend({
                         "build": "node build/build.js"
                     }
                 },
+                "dianping+wxapp+component":{
+                    devDependencies: {
+                        "@dp/generate-weapp-page": "^0.1.3",
+                        "autoprefixer": "^6.5.4",
+                        "babel-plugin-transform-runtime": "^6.15.0",
+                        "babel-preset-es2015": "^6.16.0",
+                        "cross-env": "^3.1.2",
+                        "cz-conventional-changelog": "^1.2.0",
+                        "del": "^2.2.2",
+                        "eslint": "^3.7.1",
+                        "eslint-config-standard": "^6.2.0",
+                        "eslint-config-yayajing": "^1.0.0",
+                        "eslint-friendly-formatter": "^2.0.6",
+                        "eslint-plugin-hybrid": "0.0.1",
+                        "eslint-plugin-json": "^1.2.0",
+                        "eslint-plugin-promise": "^3.0.0",
+                        "eslint-plugin-standard": "^2.0.1",
+                        "gulp": "^3.9.1",
+                        "gulp-babel": "^6.1.2",
+                        "gulp-eslint": "^3.0.1",
+                        "gulp-htmlmin": "^3.0.0",
+                        "gulp-if": "^2.0.1",
+                        "gulp-jsonminify": "^1.0.0",
+                        "gulp-less": "^3.1.0",
+                        "gulp-load-plugins": "^1.3.0",
+                        "gulp-postcss": "^6.2.0",
+                        "gulp-rename": "^1.2.2",
+                        "gulp-replace": "^0.5.4",
+                        "gulp-sourcemaps": "^2.0.1",
+                        "gulp-strip-comments": "^2.4.3",
+                        "gulp-util": "^3.0.7",
+                        "inquirer": "^1.2.2",
+                        "pre-commit": "^1.2.2",
+                        "run-sequence": "^1.2.2",
+                        "shelljs": "^0.8.1",
+                        "standard-version": "^4.0.0"
+                    },
+                    dependencies: {
+                        "@analytics/wechat-sdk": "^1.2.1",
+                        "@dp/adu_track": "^1.0.7",
+                        "@hfe/mp-owl": "0.0.4",
+                        "@mtfe/wx-rc-finger": "^1.0.6",
+                        "@mtfe/wxapp-rohr": "^1.0.3",
+                        "widgetdom-template-compiler": "^0.1.39"
+                     },
+                    scripts: {
+                        "lint": "node ./node_modules/.bin/eslint src",
+                        "watch": "gulp watch",
+                        "build": "gulp build",
+                        "page": "gulp generate",
+                        "release": "node bin/release.js && npm run build"
+                    }
+                },
                 "webpack2+vue2":{
                     devDependencies:{
                         "autoprefixer": "^6.7.2",
@@ -252,7 +305,7 @@ module.exports = yeoman.Base.extend({
                 pkg.keywords = _.uniq(this.props.keywords.concat(pkg.keywords));
             }
             if (this.props.name){
-                pkg.name = this.props.name;
+                pkg.name = '@dp/' + this.props.name;
             }
             if (this.props.version){
                 pkg.version = this.props.version;
@@ -272,9 +325,9 @@ module.exports = yeoman.Base.extend({
          *
          * */
         "directories": function () {
-            this.fs.copy(this.templatePath('./' + this.currentDir + '/static') + "/gitignore", this.destinationPath('./.gitignore'));
-            this.fs.copy(this.templatePath('./' + this.currentDir + '/static') + "/babelrc", this.destinationPath('./.babelrc'));
-            this.fs.copy(this.templatePath('./' + this.currentDir + '/static') + "/**/*.*", this.destinationPath('./'));
+            this.fs.copyTpl(this.templatePath('./' + this.currentDir + '/static') + "/gitignore", this.destinationPath('./.gitignore'));
+            this.fs.copyTpl(this.templatePath('./' + this.currentDir + '/static') + "/babelrc", this.destinationPath('./.babelrc'));
+            this.fs.copyTpl(this.templatePath('./' + this.currentDir + '/static') + "/**/*.*", this.destinationPath('./'));
             // this.fs.copyTpl(this.templatePath('./' + this.currentDir + '/tpl') + "/**/*.*", this.destinationPath('./'), {AppName: this.pkg.name});
         }
     },
@@ -293,6 +346,10 @@ module.exports = yeoman.Base.extend({
                 // this.spawnCommandSync('webpack',[],opt);
                 this.spawnCommandSync('npm',['start'],opt);
                 break;
+            case 'dianping+wxapp+component':
+                // this.spawnCommandSync('yarn', ['install'],opt);
+                // this.spawnCommandSync('webpack',[],opt);
+                this.spawnCommandSync('npm',['install'],opt);    
             default:
                 break;
         }

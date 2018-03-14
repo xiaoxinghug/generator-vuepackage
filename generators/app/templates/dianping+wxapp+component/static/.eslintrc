@@ -1,0 +1,17 @@
+{
+  "extends": "eslint-config-yayajing",
+  "rules": {
+    "eqeqeq": "off",
+    "no-console": "off",
+    "prefer-promise-reject-errors": "off",
+    "no-warning-comments": [2, { "terms": ["todo", "fixme", "xxx"], "location": "start" }]
+  },
+  "globals": {
+    "App": true,
+    "Page": true,
+    "getApp": true,
+    "wx": true,
+    "getCurrentPages": true,
+    "Component": true
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "测试组件",
+  "backgroundColor": "#181818",
+  "backgroundTextStyle": "light",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "shop-wed-order": "../../components/wedorder/index"
+  }
+}
